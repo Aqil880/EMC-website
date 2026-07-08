@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — EMC</title>
+<meta name="description" content="Register for a course at EMC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .form-shell{
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    padding: 40px;
+  }
+  .field{ margin-bottom: 22px; }
+  .field label{
+    display:block;
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing:.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="number"],
+  .field select{
+    width:100%;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: .95rem;
+    transition: border-color .2s;
+  }
+  .field input:focus, .field select:focus{ border-color: var(--accent); }
+  .field.invalid input, .field.invalid select, .field.invalid .radio-row{
+    border-color: #D96A5A;
+  }
+  .field .error-msg{
+    display:none;
+    color: #D96A5A;
+    font-size: .78rem;
+    margin-top: 6px;
+    font-family: var(--font-mono);
+  }
+  .field.invalid .error-msg{ display:block; }
+  .radio-row{
+    display:flex; gap: 22px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    padding: 12px 14px;
+  }
+  .radio-row label{
+    display:flex; align-items:center; gap:.5em;
+    font-family: var(--font-body);
+    text-transform:none; letter-spacing:0;
+    color: var(--text); font-size:.93rem; margin:0;
+  }
+  .field-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .file-drop{
+    display:flex; align-items:center; justify-content:space-between;
+    background: var(--bg-elev);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-s);
+    padding: 12px 14px;
+    cursor:pointer;
+  }
+  #file-label{ font-size:.88rem; color: var(--text-muted); }
+  .file-drop input[type="file"]{ display:none; }
+  .chip{
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .06em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+  .form-actions{ display:flex; gap:14px; margin-top: 6px; }
+  #form-success{
+    margin-top: 22px;
+    background: var(--trace-soft);
+    border: 1px solid var(--trace);
+    color: var(--text);
+    border-radius: var(--radius-s);
+    padding: 14px 16px;
+    font-size: .92rem;
+  }
+  @media (max-width: 600px){
+    .form-shell{ padding: 26px 20px; }
+    .field-row{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="dot"></span>
+      <span>EMC<small>EXCELLENCE&nbsp;IN&nbsp;MICRO&nbsp;COMPUTING</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="event.html">Events</a></li>
+      <li><a href="register.html" class="active">Register</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero container" style="grid-template-columns:1fr; padding-bottom:20px;">
+    <div>
+      <p class="eyebrow">Enrollment</p>
+      <h1>Register for a course</h1>
+      <p class="lede">Tell us a little about yourself and pick a track. Seats are limited per cohort, so we'll follow up by email to confirm your spot.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <form class="form-shell" id="reg-form" novalidate>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Aqil Ahamed" required>
+          <span class="error-msg">Enter your name to continue.</span>
+        </div>
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" placeholder="e.g. 21" min="10" max="99" required>
+          <span class="error-msg">Enter a valid age.</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="radio-row">
+          <label><input type="radio" name="gender" value="male" required> Male</label>
+          <label><input type="radio" name="gender" value="female" required> Female</label>
+          <label><input type="radio" name="gender" value="other" required> Other</label>
+        </div>
+        <span class="error-msg">Select one option.</span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <span class="error-msg">Enter a valid email address.</span>
+      </div>
+
+      <div class="field">
+        <label for="course">Select a course</label>
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Choose a track…</option>
+          <option>Python Programming</option>
+          <option>Java</option>
+          <option>JavaScript</option>
+          <option>C</option>
+          <option>C++</option>
+          <option>Full‑Stack Web Development</option>
+        </select>
+        <span class="error-msg">Pick a course.</span>
+      </div>
+
+      <div class="field">
+        <label for="resume">Resume <span class="chip">optional</span></label>
+        <label class="file-drop" for="resume">
+          <span id="file-label">Choose a file (PDF, DOC — max 5MB)</span>
+          <span class="chip">Browse</span>
+        </label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit registration</button>
+        <button type="reset" class="btn btn-ghost">Clear form</button>
+      </div>
+
+      <p id="form-success" hidden>✓ Thanks — your registration has been recorded. We'll email you to confirm your seat.</p>
+    </form>
+  </section>
+
+  <section class="container">
+    <div class="section-head">
+      <p class="tiny-note" style="text-align:center;">
+        <a href="index.html" style="color:var(--text-muted);">Home</a> ·
+        <a href="https://www.instagram.com/_aqil__a/" target="_blank" rel="noopener" style="color:var(--text-muted);">Instagram</a> ·
+        <a href="https://www.youtube.com/watch?v=Rb_Fq76Mh6w" target="_blank" rel="noopener" style="color:var(--text-muted);">YouTube</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 EMC — built by Aqil</span>
+      <span>Questions? <a href="mailto:aqiltaqqy543@gmail.com">aqiltaqqy543@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
