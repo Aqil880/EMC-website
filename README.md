@@ -102,17 +102,22 @@ in your browser.
 
 ### Home
 
-(Add Screenshot)
+<img width="1366" height="768" alt="Screenshot From 2026-07-08 21-49-25" src="https://github.com/user-attachments/assets/ef0c3557-e486-410a-a6d9-b5a9948a5518" />
+<img width="1366" height="768" alt="Screenshot From 2026-07-08 21-49-05" src="https://github.com/user-attachments/assets/7ee2652b-f867-4b4e-baf9-764e572e68af" />
+
 
 ### Events
 
-(Add Screenshot)
+<img width="1366" height="768" alt="Screenshot From 2026-07-08 21-50-15" src="https://github.com/user-attachments/assets/5f5c70d0-fe63-444e-b55d-41aea028c8c8" />
+
 
 ### Registration
 
 (Add Screenshot)
 
----
+<img width="596" height="133" alt="Screenshot From 2026-07-08 21-52-45" src="https://github.com/user-attachments/assets/18703487-f51a-49e5-a716-7fcd79bb51b3" />
+<img width="1366" height="768" alt="Screenshot From 2026-07-08 21-51-39" src="https://github.com/user-attachments/assets/f0ef9f16-9f5d-4219-ad28-5e4580104877" />
+
 
 ## Future Improvements
 
